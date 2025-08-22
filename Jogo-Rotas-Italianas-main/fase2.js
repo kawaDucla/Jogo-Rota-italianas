@@ -103,7 +103,7 @@ function iniciarJogo() {
     sol.style.width = '240px';
     background.style.background = 'linear-gradient(#ffae00, #fbff00)';
 
-    pessoa.src = './img/pessoa-correndo.gif';
+    pessoa.src = './img/vinicius.gif';
     pessoa.style.width = '140px';
     pessoa.style.marginLeft = '0';
     pessoa.style.marginBottom = '0';
