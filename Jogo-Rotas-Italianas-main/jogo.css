@@ -1,0 +1,213 @@
+/* Reset e ajustes básicos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* impede rolagem */
+    height: 100vh;     /* ocupa 100% da altura da tela */
+    font-family: Arial, sans-serif;
+}
+
+/* Área do jogo */
+.game-board {
+    width: 100%;
+    height: 500px;
+    border-bottom: 15px solid rgba(13, 165, 20, 0.815);
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(#ffae00, #fbff00);
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+
+/* Painel de pontuação */
+.pontuacao-board {
+     width: 100%;
+    height: 440px;
+    bottom: 0;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-around;
+    background-image: url(./img/Terra.png);
+}
+
+
+.pontuacao {
+    color: rgb(0, 0, 0);
+    font-size: 40px;
+    background-color: white;
+    height: 60px;
+    width: 300px;
+    border-radius: 50px;
+    text-align: center;
+    line-height: 60px;
+    font-weight: bold;
+}
+
+/* Botões Reiniciar e Início */
+.botao-restart,
+.botao-inicio {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 23px;
+    padding: 8px 50px;
+    background-color: #9900d6;
+    border: rgb(37, 0, 80) solid 3px;
+    color: rgb(75, 22, 105);
+    cursor: pointer;
+    visibility: hidden;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    user-select: none;
+    z-index: 10;
+}
+
+/* Posição específica dos botões */
+.botao-restart {
+    top: 44%;
+}
+
+.botao-inicio {
+    top: 56%;
+}
+
+.botao-restart:hover,
+.botao-inicio:hover {
+    background-color: #a902eb;
+}
+
+/* Elementos do jogo */
+.tijolo {
+    position: absolute;
+    bottom: 0;
+    width: 82px;
+    animation: tijolo-animation 1.5s infinite linear;
+    right: -90px; /* Inicial para animação */
+    z-index: 5;
+}
+
+.sol {
+    width: 240px;
+    position: absolute;
+    bottom: 240px;
+    animation: sol-animation 20s linear infinite;
+    right: -90px; /* Inicial para animação */
+    z-index: 3;
+}
+
+.pessoa1 {
+    width: 140px;
+    position: absolute;
+    bottom: 0px;
+    left: -10px;
+    z-index: 10;
+}
+
+.jump {
+    animation: jump 500ms ease-out;
+}
+
+/* Animações */
+@keyframes tijolo-animation {
+    from {
+        right: -90px;
+    }
+    to {
+        right: 100%;
+    }
+}
+
+@keyframes sol-animation {
+    from {
+        right: -90px;
+    }
+    to {
+        right: 100%;
+    }
+}
+
+@keyframes jump {
+    0% {
+        bottom: 0px;
+    }
+    40%, 50%, 60% {
+        bottom: 120px;
+    }
+    100% {
+        bottom: 0px;
+    }
+}
+
+/* ============================= */
+/* Tela de Introdução */
+.intro-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.intro-box {
+    background: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    width: 70%;
+    max-width: 500px;
+    font-family: 'Press Start 2P', cursive;
+    color: black;
+    border: 4px solid black;
+}
+
+.intro-box h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.intro-box p {
+    font-size: 16px;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.btn-start {
+    font-size: 22px;
+    padding: 15px 40px;
+    background-color: #FFA500;
+    border: 3px solid black;
+    font-family: 'Press Start 2P', cursive;
+    color: black;
+    cursor: pointer;
+    border-radius: 6px;
+    animation: pulsar 1.5s infinite ease-in-out;
+    user-select: none;
+}
+
+.btn-start:hover {
+    background-color: #ff8c00;
+}
+
+/* Animação pulsar (usada no botão Start) */
+@keyframes pulsar {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
